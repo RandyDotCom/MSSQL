@@ -1,0 +1,43 @@
+﻿<Project>
+  <Build Name="Full" Description="End to end underlying objects">
+	<Script type="file" path="Scripts\redmond.osgtadm.sysadmin.sql" Database="master" />
+	<Script type="file" path="Scripts\TweakModel.sql" Database="master" />
+	<Script type="file" path="Scripts\dbo.KillDatabaseusers.sql" Database="master" />
+    <Script type="file" path="Scripts\createdatabase_ops.sql" Database="master" />
+	<Script type="file" path="Scripts\sqllogintools.sql" Database="master" />
+    <Script type="file" path="Scripts\Lobotomize.sql" Database="ops" />
+
+    <Script type="folder" path="Tables" />
+    <Script type="folder" path="Functions" />
+    <Script type="folder" path="Views" />
+	
+	<!-- PreRequisites to Procedures -->
+	<Script type="file" path="Procedures\sp_help_executesproc.sql" />
+	<Script type="file" path="Procedures\dbo.settings_put.sql" />
+	<Script type="file" path="Procedures\dbo.BackupFiles_updateclusters.sql" />
+	<Script type="file" path="Procedures\dbo.SettingsRegRead.sql" />
+	<!-- Procedures  -->
+	<Script type="folder" path="Procedures" />  
+
+	<!-- Post Deployment Checks  -->
+    <Script type="file" path="Scripts\WTTBrokerTest.sql" />
+	<Script type="file" path="Scripts\SchemaReport.sql" />
+	<Script type="file" path="Scripts\ExecInstanceReport.sql" />  
+	<Script type="file" path="Scripts\SetVersion.sql" />   
+	<Script type="file" path="Scripts\NewImplementationSteps.sql" />
+	
+   </Build>
+   <Build Name="Jobs" Description="SQL Server Maintenance Jobs">
+   	<!-- Jobs Recommended -->
+	<Script type="file" path="Scripts\ops.operator.sql" Database="msdb" />	
+	<Script type="file" path="Jobs\dbaBackupsLogs.sql" Database="msdb" />
+    <Script type="file" path="Jobs\dbaBackupsDailys.sql" Database="msdb" />
+	<Script type="file" path="Jobs\dbaIndexOptimize.sql" Database="msdb" /> 
+	<Script type="file" path="Jobs\dbaHADRJobManager.sql" Database="msdb" /> 
+	<Script type="file" path="Jobs\indexoptimize.sql" Database="msdb" /> 	
+	<Script type="file" path="Jobs\dbaTaskManager.sql" Database="msdb" />
+	<!-- 
+	  <Script type="file" path="Jobs\dbaDBCC-CheckDB.sql" Database="msdb" /> 
+	 --> 
+	</Build>
+</Project>
